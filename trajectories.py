@@ -59,22 +59,28 @@ class Object:
         return (self.x, self.y)
 
 
+def get_trajectory(_object, _range, _plot=True, _print=False):
+    x = list()
+    y = list()
+    if _print:
+        print(_object)
+        print('---------------------')
+    for _ in range(_range):
+        _object.update()
+        trajectory = _object.get_trajectory()
+        x.append(trajectory[0])
+        y.append(trajectory[1])
+        if _print:
+            print(Earth)
+            print('---------------------')
+    if _plot:
+        plt.plot(x,y)
+        plt.grid()
+        plt.show()
+
     
 
 
 if __name__ == '__main__':
     Earth = Object(150000000000, 0.0, 0.0, 30000, 100, 1.989*(10**30))
-    x = list()
-    y = list()
-    # print(Earth)
-    # print('---------------------')
-    for _ in range(1000000):
-        Earth.update()
-        trajectory = Earth.get_trajectory()
-        x.append(trajectory[0])
-        y.append(trajectory[1])
-        # print(Earth)
-        # print('---------------------')
-    plt.plot(x,y)
-    plt.grid()
-    plt.show()
+    get_trajectory(Earth, 1000000)
