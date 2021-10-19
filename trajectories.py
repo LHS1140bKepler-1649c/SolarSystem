@@ -71,7 +71,7 @@ def get_trajectory(_object, _range, _plot=True, _print=False):
         x.append(trajectory[0])
         y.append(trajectory[1])
         if _print:
-            print(Earth)
+            print(_object)
             print('---------------------')
     if _plot:
         plt.plot(x,y)
